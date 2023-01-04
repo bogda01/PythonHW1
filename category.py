@@ -15,8 +15,8 @@ class Decoder(JSONDecoder):
         vals = []
         for key in data.keys():
             vals.append(data[key])
-        cat = Category(*vals)
-        return cat
+        category = Category(*vals)
+        return category
 
 
 class Category:

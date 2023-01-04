@@ -1,6 +1,7 @@
 from json import JSONDecoder, JSONEncoder, JSONDecodeError, loads, dump
 import product
 
+
 class Encoder(JSONEncoder):
 
     def default(self, o):
@@ -8,7 +9,6 @@ class Encoder(JSONEncoder):
 
 
 class Products:
-
     products = []
 
     @classmethod
@@ -27,23 +27,23 @@ class Products:
         return cls.products
 
     @classmethod
-    def remove_product(cls, prod):
+    def remove_product(cls, product):
         cls.load_products()
-        if prod in cls.products:
-            cls.products.remove(prod)
+        if product in cls.products:
+            cls.products.remove(product)
             with open("products.txt", 'w') as f:
-                for prod in cls.products:
+                for product in cls.products:
                     e = Encoder()
-                    encoded_prod = e.encode(prod)
+                    encoded_prod = e.encode(product)
                     dump(encoded_prod, f)
                     f.write("\n")
 
     @classmethod
-    def add_product(cls, prod):
+    def add_product(cls, product):
         cls.load_products()
-        if prod not in cls.products:
+        if product not in cls.products:
             with open("products.txt", 'a') as f:
                 e = Encoder()
-                encoded_prod = e.encode(prod)
+                encoded_prod = e.encode(product)
                 dump(encoded_prod, f)
                 f.write("\n")

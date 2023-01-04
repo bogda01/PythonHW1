@@ -1,6 +1,7 @@
 from json import JSONDecoder, JSONEncoder, JSONDecodeError, loads, dump
 import category
 
+
 class Encoder(JSONEncoder):
 
     def default(self, o):
@@ -26,23 +27,23 @@ class Categories:
         return cls.categories
 
     @classmethod
-    def remove_category(cls, cat):
+    def remove_category(cls, category):
         cls.load_categories()
-        if cat in cls.categories:
-            cls.categories.remove(cat)
+        if category in cls.categories:
+            cls.categories.remove(category)
             with open("categories.txt", 'w') as f:
-                for cat in cls.categories:
+                for category in cls.categories:
                     e = Encoder()
-                    encoded_cat = e.encode(cat)
-                    dump(encoded_cat, f)
+                    encoded_category = e.encode(category)
+                    dump(encoded_category, f)
                     f.write("\n")
 
     @classmethod
-    def add_category(cls, cat):
+    def add_category(cls, category):
         cls.load_categories()
-        if cat not in cls.categories:
+        if category not in cls.categories:
             with open("categories.txt", 'a') as f:
                 e = Encoder()
-                encoded_cat = e.encode(cat)
-                dump(encoded_cat, f)
+                encoded_category = e.encode(category)
+                dump(encoded_category, f)
                 f.write("\n")

@@ -1,9 +1,11 @@
 from json import JSONEncoder, JSONDecoder, JSONDecodeError, loads
 
+
 class Encoder(JSONEncoder):
 
     def default(self, o: object) -> object:
         return o.__dict__
+
 
 class Decoder(JSONDecoder):
 
