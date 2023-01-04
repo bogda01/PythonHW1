@@ -1,7 +1,6 @@
 from json import JSONEncoder, JSONDecoder, dump, loads
 
 
-# define the Encoder class used in serialization
 class Encoder(JSONEncoder):
 
     def default(self, o: str) -> str:

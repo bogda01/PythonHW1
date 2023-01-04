@@ -1,7 +1,5 @@
 from json import JSONEncoder, JSONDecoder, JSONDecodeError, loads
 
-from product import Product
-
 
 class Encoder(JSONEncoder):
 

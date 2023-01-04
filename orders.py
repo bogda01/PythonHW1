@@ -3,7 +3,6 @@ from json import JSONDecoder, JSONEncoder, JSONDecodeError, loads, dump
 import order
 
 
-# define the Encoder class used in serialization
 class Encoder(JSONEncoder):
 
     def default(self, o):
